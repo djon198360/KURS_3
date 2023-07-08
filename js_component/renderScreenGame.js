@@ -12,7 +12,7 @@ export let timer;
 
 //clearTimeout(timer);
 
-const CARDDECK = [6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
+const CARDDECK = [6, 7, 8, 9, 10, 'j', 'q', 'k', 'a'];
 const mast = ['pic', 'kres', 'bub', 'her']
 
 
