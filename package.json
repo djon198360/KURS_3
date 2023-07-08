@@ -1,0 +1,26 @@
+{
+  "name": "kurs_3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development --watch"
+  },
+  "author": "djon198360",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars": "^4.7.7"
+  },
+  "devDependencies": {
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djon198360/KURS_3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/djon198360/KURS_3/issues"
+  },
+  "homepage": "https://github.com/djon198360/KURS_3#readme"
+}
