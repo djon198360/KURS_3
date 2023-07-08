@@ -7,9 +7,22 @@ export function renderStart() {
                       <div class="screen">  
                             <p class="title">${textStart}</p>
                             <div class="qual">
-                            <div class="but one">1</div>
-                            <div class="but two">2</div>
-                            <div class="but free">3</div>
+
+                   
+                                <input type="radio" id="radio1" name="radios" value="1">
+                                <label class="but one" for="radio1">1</label>
+                                
+                                <input type="radio" id="radio2" name="radios" value="2">
+                                <label class="but two" for="radio2">2</label>
+                                
+                                <input type="radio" id="radio3" name="radios" value="3">
+                                <label class="but free" for="radio3">3</label>
+                  
+
+
+
+
+                           
                             </div>
                             <button class="start" disabled="true">Старт</button>
                       </div>

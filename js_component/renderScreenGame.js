@@ -12,7 +12,7 @@ export let timer;
 
 //clearTimeout(timer);
 
-const CARDDECK = [6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
+const CARDDECK = [6, 7, 8, 9, 10, 'j', 'q', 'k', 'a'];
 const mast = ['pic', 'kres', 'bub', 'her']
 
 
@@ -51,13 +51,14 @@ export function renderGame() {
                               localStorage.setItem('moves', Number(localStorage.getItem('moves')) + 1);
                               if (document.querySelectorAll(".close").length <= 0) {
                                      renderOver('Вы выиграли');
-                                     clearTimeout(timer); }
+                                     clearTimeout(timer);
+                                     clearInterval(timer) }
 
                               temp = null;
                         } else {
 
                               renderOver('Вы проиграли');
-
+                              clearInterval(timer)
                               clearTimeout(timer);
                               return document.querySelector(".card_table").style = 'pointer-events: none;';
                               //  temp.children[0].classList.add("close");

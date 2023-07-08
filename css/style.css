@@ -1,3 +1,14 @@
+@font-face {
+    font-family: "StratosSkyeng";
+    src: url("../fonts/stratosskyengweb-regular.woff2");
+    src: local('StratosSkyeng'),
+      url('../fonts/stratosskyengweb-regular.woff2') format('woff2'),
+      url('../fonts/stratosskyengweb-regular.woff') format('woff');
+  }
+
+body {
+    font-family: StratosSkyeng; 
+}
 .page {
     background-color: #004980;
 }
@@ -173,4 +184,21 @@ line-height: 72px;
 
 .close{
     visibility: hidden;
+}
+/********/
+
+
+.qual input[type="radio"] {
+    display: none;
+}
+
+
+.qual input[type="radio"]:checked {
+    background-color: #7AC100;
+    color: #fff;
+}
+
+.qual label:hover {
+    background-color: #d0ffb7;
+    transform: scale(1.1);
 }
