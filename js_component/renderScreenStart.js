@@ -1,5 +1,6 @@
 import { app } from "../index.js";
 import { unitCheck } from "./functions.js";
+
 export function renderStart() {
       const textStart = 'Выбери сложность';
       app.innerHTML = `

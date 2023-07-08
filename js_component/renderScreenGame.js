@@ -1,16 +1,19 @@
 import { app } from "../index.js";
 import { unitCheck } from "./functions.js";
-const qual = localStorage.getItem('qual');
+import { renderOver } from "./renderScreenOver.js";
+
+//
 const pause = 5 * 1000;
-let result = 6 * qual;
+//let result = 6 * qual;
 let seconds = 0;
 let minutes = 0;
-let hours = 0;
-let timer;
-let newArr = new Array();
+
+export let timer;
+
+//clearTimeout(timer);
 
 const CARDDECK = [6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
-const mast = ['pic','kres','bub','her']
+const mast = ['pic', 'kres', 'bub', 'her']
 
 
 
@@ -24,14 +27,14 @@ export function renderGame() {
             <div class="card_table">
             </div>
                 `;
-      
+
       const cards = document.querySelector('.card_table');
       cards.append(getListContent()); // (*)
-      
-      const elements = document.querySelectorAll('.card_card');
-      
 
-      timer = setInterval(updateSeconds, 1000);
+      const elements = document.querySelectorAll('.card_card');
+
+
+      
       let cardInDom = document.querySelectorAll(".card");
       // вызываем функцию по клику на .card и показываем цифру
       let temp;
@@ -45,17 +48,20 @@ export function renderGame() {
                               temp.classList.remove("close");
                               card.classList.remove("close");
 
-                               localStorage.setItem('moves',Number(localStorage.getItem('moves'))+1);
-                              if(document.querySelectorAll(".close").length <= 0){alert('Вы победили')}
+                              localStorage.setItem('moves', Number(localStorage.getItem('moves')) + 1);
+                              if (document.querySelectorAll(".close").length <= 0) {
+                                     renderOver('Вы выиграли');
+                                     clearTimeout(timer); }
 
                               temp = null;
                         } else {
-                             // alert('Вы проиграли');
+
+                              renderOver('Вы проиграли');
 
                               clearTimeout(timer);
-                           return   document.querySelector(".card_table").style = 'pointer-events: none;';
-                            //  temp.children[0].classList.add("close");
-                            //  temp = card;
+                              return document.querySelector(".card_table").style = 'pointer-events: none;';
+                              //  temp.children[0].classList.add("close");
+                              //  temp = card;
                         }
                   } else temp = card;
             };
@@ -66,13 +72,14 @@ export function renderGame() {
                   elem.classList.add('close');
             }, pause);
       }
-     
-   //  updateSeconds();
+      timer = setInterval(updateSeconds, 1000);
+      //  updateSeconds();
 }
 
-
-function genCardDiv(fragment, newArr) {
-      for (let i = 0; i < result; i++) {
+const  genCardDiv = ( newArr) => {
+      let fragment = new DocumentFragment();
+      newArr.sort(() => Math.random() - 0.5); 
+      for (let i = 0; i < newArr.length; i++) {
 
             let carda = document.createElement("div");
             let fon = document.createElement("img");
@@ -84,25 +91,29 @@ function genCardDiv(fragment, newArr) {
             fragment.append(carda);
       }
 
-      return fragment;
+      return fragment;     
 }
 
-function getListContent() {
 
-      let fragment = new DocumentFragment();
+
+const getListContent = () => {
+      let newArr = new Array();
+      let qual = localStorage.getItem('qual');
+      let result = 6 * qual;
       for (let i = 0; i < result / 2; i++) {
             let y = Math.floor(Math.random() * CARDDECK.length);
             let z = Math.floor(Math.random() * mast.length);
-            newArr.push(CARDDECK[y]+mast[z]);
-            newArr.push(CARDDECK[y]+mast[z]);
+            newArr.push(CARDDECK[y] + mast[z]);
+            newArr.push(CARDDECK[y] + mast[z]);
       }
-      newArr.sort(() => Math.random() - 0.5);
-      return genCardDiv(fragment, newArr);
-
+      newArr.sort(() => Math.random() - 0.5); 
+      return genCardDiv(newArr);   
+      
 }
 
+
 function updateSeconds() {
-     
+
       let spendTime = document.querySelector(".time");
       seconds += 1;
       if (seconds > 59) {
