@@ -8,19 +8,19 @@ import { unitCheck } from "./js_component/functions.js";
 
 export function start() {
       if (localStorage.getItem('unit')) {
-            let unit = localStorage.getItem('unit');
+        let unit = localStorage.getItem('unit');
             if(unit === PAGE[0]) {
-                return  renderStart();
+               return   renderStart();
             }
             if(unit === PAGE[1]) {
-                return  renderGame();
+             return    renderGame();
             }
             if(unit === PAGE[2]) {
-                return  renderOver();
+             return    renderOver();
             }
       }
       else {
-            return  unitCheck('unit','Start');
+          return   unitCheck('unit','Start');
         }
 }
 
