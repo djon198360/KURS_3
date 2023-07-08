@@ -202,3 +202,49 @@ line-height: 72px;
     background-color: #d0ffb7;
     transform: scale(1.1);
 }
+
+/*******/
+img.over {
+    margin: 32px auto 8px auto;
+}
+img.victory {
+    margin: 30px auto 9px auto;
+}
+
+.title_over,.title_victory {
+    padding: 0px 0px 28px 0px;
+    font-family: StratosSkyeng;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #004980;
+    margin: 0px;
+}
+.title_time{
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    color: #000;
+    margin: 0px auto 10px auto;
+}
+.time_over{
+    color: #000;
+font-family: StratosSkyeng;
+font-size: 64px;
+font-style: normal;
+font-weight: 400;
+line-height: 72px;
+margin: 0px auto 40px auto;
+}
+
+.layout {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    opacity: 0.8999999761581421;
+    background: #004980;
+    /* z-index: 1; */
+}

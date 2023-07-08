@@ -5,8 +5,8 @@ import { renderOver } from "./renderScreenOver.js";
 //
 const pause = 5 * 1000;
 //let result = 6 * qual;
-let seconds = 0;
-let minutes = 0;
+//let seconds = 0;
+//let minutes = 0;
 
 export let timer;
 
@@ -15,9 +15,12 @@ export let timer;
 const CARDDECK = [6, 7, 8, 9, 10, 'j', 'q', 'k', 'a'];
 const mast = ['pic', 'kres', 'bub', 'her']
 
-
+let seconds = 0;
+let minutes = 0;
 
 export function renderGame() {
+      clearTimeout(timer);
+      clearInterval(timer) ;
       const textStart = 'Вы в игре';
       app.innerHTML = `
              <div class="header">
@@ -30,7 +33,7 @@ export function renderGame() {
 
       const cards = document.querySelector('.card_table');
       cards.append(getListContent()); // (*)
-
+      document.querySelector(".card_table").style = 'pointer-events: none;';
       const elements = document.querySelectorAll('.card_card');
 
 
@@ -50,16 +53,14 @@ export function renderGame() {
 
                               localStorage.setItem('moves', Number(localStorage.getItem('moves')) + 1);
                               if (document.querySelectorAll(".close").length <= 0) {
-                                     renderOver('Вы выиграли');
-                                     clearTimeout(timer);
-                                     clearInterval(timer) }
+                                     renderOver('Вы выиграли','victory',minutes,seconds);
+                                     clearInterval(timer,minutes=0,seconds=0); }
 
                               temp = null;
                         } else {
 
-                              renderOver('Вы проиграли');
-                              clearInterval(timer)
-                              clearTimeout(timer);
+                              renderOver('Вы проиграли','over',minutes,seconds);
+                              clearInterval(timer,minutes=0,seconds=0);
                               return document.querySelector(".card_table").style = 'pointer-events: none;';
                               //  temp.children[0].classList.add("close");
                               //  temp = card;
@@ -71,10 +72,22 @@ export function renderGame() {
       for (let elem of elements) {
             setTimeout(function () {
                   elem.classList.add('close');
+                  document.querySelector(".card_table").style = 'pointer-events: unset;';
             }, pause);
+            
       }
+      
       timer = setInterval(updateSeconds, 1000);
-      //  updateSeconds();
+
+
+      document.querySelector('.restart').addEventListener('click', (e) => {
+           // unitCheck('qual', qual);
+           clearInterval(timer,minutes=0,seconds=0);
+
+           unitCheck('unit', 'Game');
+          renderGame();
+      });
+
 }
 
 const  genCardDiv = ( newArr) => {
