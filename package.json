@@ -13,7 +13,9 @@
 		"prepare": "husky install",
 		"lint": "npm run lint:js && npm run lint:css",
 		"start": "http-server -p 3001",
-		"build": "webpack --mode production"
+		"build": "webpack --mode production",
+		"lint:ts": "tsc --noEmit",
+		"serve": "webpack serve"
 	},
 	"dependencies": {
 		"handlebars": "^4.7.7",
@@ -25,6 +27,7 @@
 		"css-minimizer-webpack-plugin": "^5.0.1",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-prettier": "^4.2.1",
+		"file-loader": "^6.2.0",
 		"html-webpack-plugin": "^5.5.3",
 		"husky": "^8.0.3",
 		"install": "^0.13.0",
@@ -36,8 +39,11 @@
 		"stylelint": "^15.10.1",
 		"stylelint-config-standard": "^34.0.0",
 		"stylelint-prettier": "^4.0.0",
+		"ts-loader": "^9.4.4",
+		"typescript": "^5.1.6",
 		"webpack": "^5.88.1",
-		"webpack-cli": "^5.1.4"
+		"webpack-cli": "^5.1.4",
+		"webpack-dev-server": "^4.15.1"
 	},
 	"repository": {
 		"type": "git",

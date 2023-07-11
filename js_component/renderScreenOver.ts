@@ -1,6 +1,6 @@
-import { app } from '../index.js'
-import { unitCheck } from './functions.js'
-import { timer } from './renderScreenGame.js'
+import { app } from '../index'
+import { unitCheck } from './functions'
+import { timer } from './renderScreenGame'
 function gameOver(text, imgs, minutes, seconds) {
 	let fragment = new DocumentFragment()
 	let screen = document.createElement('div')
@@ -34,12 +34,13 @@ function gameOver(text, imgs, minutes, seconds) {
 }
 
 export function renderOver(text, imgs, minutes, seconds) {
-	let div = document.createElement('div')
-	div.classList.add('layout')
-	app.append(div)
-	app.append(gameOver(text, imgs, minutes, seconds))
-	clearTimeout(timer)
-	document.querySelector('.start').addEventListener('click', (e) => {
+	let div = document.createElement('div');
+	div.classList.add('layout');
+	app?.append(div);
+	app?.append(gameOver(text, imgs, minutes, seconds));
+	clearTimeout(timer);
+	const start:HTMLElement|null = document.querySelector('.start');
+	start?.addEventListener('click', (e) => {
 		localStorage.clear()
 		unitCheck('unit', 'Start')
 	})
