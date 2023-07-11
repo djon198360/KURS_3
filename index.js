@@ -1,3 +1,4 @@
+import "./css/style.css";
 export const app = document.querySelector('.app');
 const PAGE = ['Start', 'Game', 'Over'];
 

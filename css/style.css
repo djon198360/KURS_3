@@ -1,5 +1,9 @@
+/* stylelint-disable font-family-no-missing-generic-family-keyword */
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable prettier/prettier */
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
 @font-face {
-	font-family: 'StratosSkyeng';
+	font-family: StratosSkyeng;
 	src: url('../fonts/stratosskyengweb-regular.woff2');
 	src:
 		local('StratosSkyeng'),
@@ -11,6 +15,7 @@ body {
 	font-family: StratosSkyeng;
 	background-color: #004980;
 }
+
 /* .page {
 	background-color: #004980;
 } */
@@ -38,19 +43,20 @@ body {
 }
 
 .title {
-	padding: 52px 136px 48px 136px;
-	font-family: StratosSkyeng;
+	padding-top: 52px;
+	padding-right: 136px;
+	padding-bottom: 48px;
+	padding-left: 136px;
 	font-size: 40px;
 	font-weight: 400;
 	line-height: 48px;
-	letter-spacing: 0em;
 	text-align: center;
 	color: #004980;
-	margin: 0px;
+	margin: 0;
 }
 
 .qual {
-	padding: 0px 68px 67px 68px;
+    padding-bottom: 67px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -62,7 +68,6 @@ body {
 .but {
 	text-align: center;
 	font-size: 64px;
-	font-family: StratosSkyeng;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 72px;
@@ -76,10 +81,12 @@ body {
 	border-radius: 12px;
 	background: #fff;
 }
+
 .active {
 	background-color: #7ac100;
 	color: #fff;
 }
+
 button.start {
 	display: flex;
 	margin: 0 auto;
@@ -87,7 +94,6 @@ button.start {
 	height: 48px;
 	color: #fff;
 	font-size: 24px;
-	font-family: StratosSkyeng;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 32px;
@@ -103,7 +109,6 @@ button.start:disabled {
 	background-color: #757a6d;
 }
 
-/***************screen game************/
 .header {
 	row-gap: 23px;
 	width: 100%;
@@ -114,6 +119,7 @@ button.start:disabled {
 	flex-direction: row;
 	margin: 0 23px;
 }
+
 button.restart {
 	display: flex;
 	margin-top: 52px;
@@ -121,7 +127,6 @@ button.restart {
 	height: 48px;
 	color: #fff;
 	font-size: 24px;
-	font-family: StratosSkyeng;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 32px;
@@ -132,9 +137,9 @@ button.restart {
 	border: none;
 	border-radius: 12px;
 }
+
 .timer {
 	display: flex;
-	font-family: StratosSkyeng;
 	font-size: 64px;
 	font-style: normal;
 	font-weight: 400;
@@ -151,7 +156,6 @@ button.restart {
 	gap: 57px;
 	display: flex;
 	color: #fff;
-	font-family: StratosSkyeng;
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
@@ -160,8 +164,8 @@ button.restart {
 	flex-wrap: wrap;
 	justify-content: flex-end;
 }
+
 .time {
-	font-family: StratosSkyeng;
 	font-size: 64px;
 	font-style: normal;
 	font-weight: 400;
@@ -177,7 +181,7 @@ button.restart {
 }
 
 .card {
-	background-image: url(../img/none.svg);
+	background-image: url("../img/none.svg");
 	margin: 15px;
 	height: 133px;
 }
@@ -185,7 +189,6 @@ button.restart {
 .close {
 	visibility: hidden;
 }
-/********/
 
 .qual input[type='radio'] {
 	display: none;
@@ -201,49 +204,48 @@ button.restart {
 	transform: scale(1.1);
 }
 
-/*******/
 img.over {
-	margin: 32px auto 8px auto;
+	margin: 32px auto 8px;
 }
+
 img.victory {
-	margin: 30px auto 9px auto;
+	margin: 30px auto 9px;
 }
 
 .title_over,
 .title_victory {
-	padding: 0px 0px 28px 0px;
-	font-family: StratosSkyeng;
+	padding-top: 28px;
 	font-size: 40px;
 	font-weight: 400;
 	line-height: 48px;
-	letter-spacing: 0em;
+	letter-spacing: 0;
 	text-align: center;
 	color: #004980;
-	margin: 0px;
+	margin: 0;
 }
+
 .title_time {
 	font-size: 24px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 32px;
 	color: #000;
-	margin: 0px auto 10px auto;
+	margin: 0 auto 10px;
 }
+
 .time_over {
 	color: #000;
-	font-family: StratosSkyeng;
 	font-size: 64px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 72px;
-	margin: 0px auto 40px auto;
+	margin: 0 auto 40px;
 }
 
 .layout {
 	width: 100%;
 	height: 100%;
 	position: fixed;
-	opacity: 0.8999999761581421;
+	opacity: 0.9;
 	background: #004980;
-	/* z-index: 1; */
 }
