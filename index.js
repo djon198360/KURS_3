@@ -1,7 +1,7 @@
-import "./css/style.css";
+
 export const app = document.querySelector('.app');
 const PAGE = ['Start', 'Game', 'Over'];
-
+import './css/style.css';
 import { renderStart } from './js_component/renderScreenStart.js'
 import { renderGame } from './js_component/renderScreenGame.js'
 import { renderOver } from './js_component/renderScreenOver.js'
