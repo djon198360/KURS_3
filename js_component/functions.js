@@ -1,7 +1,6 @@
-import {start} from "../index.js"
+import { start } from '../index.js'
 
-
-export function unitCheck(unit,param) {
-    localStorage.setItem(unit, param);
-   return start();
+export function unitCheck(unit, param) {
+	localStorage.setItem(unit, param)
+	return start()
 }
