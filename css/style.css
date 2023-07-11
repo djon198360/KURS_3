@@ -9,10 +9,11 @@
 
 body {
 	font-family: StratosSkyeng;
-}
-.page {
 	background-color: #004980;
 }
+/* .page {
+	background-color: #004980;
+} */
 
 .app {
 	display: flex;
