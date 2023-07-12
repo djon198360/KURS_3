@@ -1,12 +1,11 @@
 
+import './css/style.css';
 export const app: Element | null = document.querySelector('.app');
 const PAGE:string[] = ['Start', 'Game', 'Over'];
-import './css/style.css';
 import { renderStart } from './js_component/renderScreenStart';
 import { renderGame } from './js_component/renderScreenGame';
 import { renderOver } from './js_component/renderScreenOver';
 import { unitCheck } from './js_component/functions';
-
 
 
 export function start() {
