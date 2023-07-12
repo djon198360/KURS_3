@@ -47,19 +47,20 @@ export function renderGame() {
 					mov++;
 					localStorage.setItem('moves', JSON.stringify(mov));
 					if (document.querySelectorAll('.close').length <= 0) {
-						renderOver('Вы выиграли', 'victory', minutes, seconds);
 						clearInterval(timer);
+						renderOver('Вы выиграли', 'victory', minutes, seconds);
 						seconds = 0;
 						minutes = 0;
 					}
 
 					(temp as string) = '';
 				} else {
-					renderOver('Вы проиграли', 'over', minutes, seconds);
 					clearInterval(timer);
+					renderOver('Вы проиграли', 'over', minutes, seconds);
 					seconds = 0;
 					minutes = 0;
-					return ((cards as HTMLElement).style.pointerEvents =' none');
+					return ((cards as HTMLElement).style.pointerEvents = 'none');
+					
 
 				}
 			} else temp = card;
@@ -93,7 +94,7 @@ const genCardDiv = (newArr) => {
 		let fon = document.createElement('img');
 		carda.classList.add('card');
 		carda.dataset.number = newArr[i];
-		fon.setAttribute('src', 'img/' + newArr[i] + '.svg');
+		fon.setAttribute('src',  newArr[i] + '.svg');
 		fon.classList.add('card_card');
 		carda.appendChild(fon);
 		fragment.append(carda);
