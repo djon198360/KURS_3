@@ -7,7 +7,7 @@ module.exports = {
 	entry: './index.ts',// Входной файл, в котором мы пишем свой код
 	mode: process.env.NODE_ENV === "production" ? "production" : "development", 
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve(__dirname, './dist/'),
 		filename: 'main.js',
 		clean: true,
 	},
@@ -17,24 +17,6 @@ module.exports = {
 			{test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader']},
 			{test: /\.svg$/,type: 'asset/resource'}, 
 			{test: /\.(woff|woff2|eot|ttf|otf)$/,type: 'asset/resource'},
-			//{test: /\.(png|svg|jpg|jpeg|gif)$/,type: 'asset/resource'}, 
-			//	{ test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
-
-			
-			
-/* 
- 			{
-				test: /\.(png|jpe?g|gif|svg)$/,
-				use: [
-				  {
-					loader: 'file-loader',
-					options: {
-					 // name: '[path][name].[ext]',
-					 name: '[name].[ext]',
-					},
-				  },
-				],
-			}  */
 		],
 	},
 	resolve: {
