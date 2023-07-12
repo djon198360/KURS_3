@@ -5,7 +5,8 @@
 	  "node": true
 	},
 	"extends": [
-	  "eslint:recommended",
+		"airbnb",
+	  //"eslint:recommended",
 	  "prettier"
 	],
 	"plugins": [
@@ -19,10 +20,10 @@
 	  "camelcase": [
 		"error"
 	  ],
-	  "ignoreShorthands:":["/padding/", "/border/","flex"],
-	  "selector-class-pattern": null,
+	  "declaration-block-no-redundant-longhand-properties": [1,
+		{"ignoreShorthands": ["flex","margin","padding"]}],
 	  "strict": "error",
-	  "resolveNestedSelectors": true,
+	  "resolveNestedSelectors": 2,
 	  "eqeqeq": [
 		"error",
 		"always"
