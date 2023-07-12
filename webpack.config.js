@@ -4,45 +4,26 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
 
 module.exports = {
-	
-	mode: process.env.NODE_ENV === "production" ? "production" : "development",
-	entry: './index.ts', // Входной файл, в котором мы пишем свой код
+	entry: './index.ts',// Входной файл, в котором мы пишем свой код
+	mode: process.env.NODE_ENV === "production" ? "production" : "development", 
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'main.js',
 		clean: true,
 	},
-	plugins: [
-		new HtmlWebpackPlugin({
-			template: 'index.html',
-		}),
-		new MiniCssExtractPlugin({
-			// Options similar to the same options in webpackOptions.output
-			// all options are optional
-			filename: 'style.css',
-			/* 			chunkFilename: '[id].css',
-			ignoreOrder: false, // Enable to remove warnings about conflicting order */
-		}),
-	],
 	module: {
 		rules: [
-			{ test: /\.ts$/i, use: 'ts-loader', exclude: /node_modules/ },
-			{
-				test: /\.css$/i,
-				use: [MiniCssExtractPlugin.loader, 'css-loader'],
-			},
+			{ test: /\.ts$/, use: 'ts-loader', exclude: /node_modules/ },
+			{test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader']},
+			{test: /\.svg$/,type: 'asset/resource'}, 
+			{test: /\.(woff|woff2|eot|ttf|otf)$/,type: 'asset/resource'},
+			//{test: /\.(png|svg|jpg|jpeg|gif)$/,type: 'asset/resource'}, 
 			//	{ test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
 
-			{
-				test: /\.(png|svg|jpg|jpeg|gif)$/,
-				//type: 'asset/inline',
-				type: 'asset/resource',
-			},
-			{
-				test: /\.(woff|woff2|eot|ttf|otf)$/,
-				type: 'asset/resource',
-			},
-			{
+			
+			
+/* 
+ 			{
 				test: /\.(png|jpe?g|gif|svg)$/,
 				use: [
 				  {
@@ -53,21 +34,22 @@ module.exports = {
 					},
 				  },
 				],
-			}
+			}  */
 		],
 	},
+	resolve: {
+		extensions: [".ts",  ".js"]
+	}, 
 	optimization: {
 		minimizer: ['...', new CssMinimizerWebpackPlugin()],
 	},
-	resolve: {
-		extensions: [".ts", ".tsx", ".js"]
-	},
+	devtool: process.env.NODE_ENV === "production" ? false : "source-map",
 	devServer: {
-		static: {
-		  directory: path.join(__dirname, 'dist'), // Каталог для статики
-		},
+ 		static: {
+		  directory: path.resolve(__dirname, 'public'), // Каталог для статики
+		}, 
 		open: true, // Автоматически открывать браузер
 	  },
-	/*убрать для продакшн*/ 
-	devtool: process.env.NODE_ENV === "production" ? false : "source-map",
+	plugins: [new HtmlWebpackPlugin({template: 'index.html',}), new MiniCssExtractPlugin()],
+
 }

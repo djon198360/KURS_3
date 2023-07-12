@@ -184,6 +184,7 @@ button.restart {
 	background-image: url("../img/none.svg");
 	margin: 15px;
 	height: 133px;
+	width: 95px;
 }
 
 .close {

@@ -35,7 +35,6 @@ export function renderGame() {
 	for (let card of cardInDom) {
 		;(card as HTMLElement).onclick = () => {
 			if (card.classList.contains('open')) return;
-			//	let cardValue:HTMLElement = card.dataset.number;
 			let cardValue: string | null = card.getAttribute('data-number');
 			card.children[0].classList.remove('close');
 			if (temp && temp != card) {
@@ -99,7 +98,6 @@ const genCardDiv = (newArr) => {
 		carda.appendChild(fon);
 		fragment.append(carda);
 	}
-
 	return fragment;
 }
 
