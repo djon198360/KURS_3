@@ -1,6 +1,7 @@
 import { app } from '../index'
 import { unitCheck } from './functions'
 import { timer } from './renderScreenGame'
+clearTimeout(timer);
 function gameOver(text, imgs, minutes, seconds) {
 	clearTimeout(timer);
 	let fragment = new DocumentFragment()
