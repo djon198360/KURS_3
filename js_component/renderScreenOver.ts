@@ -2,6 +2,7 @@ import { app } from '../index'
 import { unitCheck } from './functions'
 import { timer } from './renderScreenGame'
 function gameOver(text, imgs, minutes, seconds) {
+	clearTimeout(timer);
 	let fragment = new DocumentFragment()
 	let screen = document.createElement('div')
 	screen.classList.add('screen')
@@ -10,7 +11,7 @@ function gameOver(text, imgs, minutes, seconds) {
 	p.textContent = text
 	let img = document.createElement('img')
 	img.classList.add(imgs)
-	img.setAttribute('src', './img/' + imgs + '.svg')
+	img.setAttribute('src',  imgs + '.svg')
 	let titleTime = document.createElement('p')
 	titleTime.textContent = 'Затраченное время:'
 	titleTime.classList.add('title_time')
@@ -34,11 +35,12 @@ function gameOver(text, imgs, minutes, seconds) {
 }
 
 export function renderOver(text, imgs, minutes, seconds) {
+	clearTimeout(timer);
 	let div = document.createElement('div');
 	div.classList.add('layout');
 	app?.append(div);
 	app?.append(gameOver(text, imgs, minutes, seconds));
-	clearTimeout(timer);
+	
 	const start:HTMLElement|null = document.querySelector('.start');
 	start?.addEventListener('click', (e) => {
 		localStorage.clear()
