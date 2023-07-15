@@ -128,6 +128,6 @@ function updateSeconds() {
 		minutes = 0;
 		//hours += 1
 	}
-	;(spendTime as HTMLElement).textContent = `${minutes
-		.toString().padStart(2, '0')}.${seconds.toString().padStart(2, '0')}`;
+	;if( (spendTime as HTMLElement).textContent ) {(spendTime as HTMLElement).textContent = `${minutes
+		.toString().padStart(2, '0')}.${seconds.toString().padStart(2, '0')}`};
 }
