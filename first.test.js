@@ -1,7 +1,7 @@
 const { it, expect } = require("@jest/globals");
-
+//import { it, expect }  from ("@jest/globals");
 it("Проверяем получения значиний из локалсторедж", () => {
-    let PAGE = require('./index');
+    let PAGE = ['Start', 'Game', 'Over'];
   
    let unit = require('./index');
   console.log(unit);

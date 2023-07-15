@@ -16,12 +16,13 @@
 		"build": "webpack --mode production",
 		"lint:ts": "tsc --noEmit",
 		"serve": "webpack serve",
-		"test": "jest",
-		"ts_test": "ts-jest"
+		"test": "jest"
 	},
 	"dependencies": {
+		"@testing-library/jest-dom": "^5.16.5",
 		"handlebars": "^4.7.7",
-		"http-server": "^14.1.1"
+		"http-server": "^14.1.1",
+		"testing-library": "^0.0.2"
 	},
 	"devDependencies": {
 		"copy-webpack-plugin": "^11.0.0",
