@@ -1,19 +1,17 @@
 import { app } from '../index';
-import { unitCheck } from './functions';
+import { unitCheck,seconds,minutes,clearTime,startTime} from './functions';
 import { renderOver } from './renderScreenOver';
 
-const pause = 5 * 1000;
 
-export let timer;
+const pause = 5 * 1000;
 
 const CARDDECK = [6, 7, 8, 9, 10, 'j', 'q', 'k', 'a'];
 const mast = ['pic', 'kres', 'bub', 'her'];
 
-let seconds: number = 0;
-let minutes: number = 0;
 
 export function renderGame() {
-	clearInterval(timer);
+	clearTime();
+	startTime();
 	(app as Element).innerHTML = `
              <div class="header">
                   <div class="timer"><div class="timer_header"><span class="min">min</span><span class="sek">sek</span></div><span class="time">00.00</span></div>
@@ -23,10 +21,9 @@ export function renderGame() {
             </div>
                 `;
 
-	const cards: Element | null = document.querySelector('.card_table');
-	(cards as HTMLElement).append(getListContent());
-	const cardTable: HTMLElement | null = document.querySelector('.card_table');
-	(cards as HTMLElement).style.pointerEvents = ' none;';
+	const cards:HTMLElement|null = document.querySelector('.card_table');
+	if(cards){cards.append(getListContent());}
+	if(cards){cards.style.pointerEvents = 'none';}
 	const elements = Array.from(document.querySelectorAll('.card_card'));
 
 	let cardInDom = Array.from(document.querySelectorAll('.card'));
@@ -47,18 +44,15 @@ export function renderGame() {
 					mov++;
 					localStorage.setItem('moves', JSON.stringify(mov));
 					if (document.querySelectorAll('.close').length <= 0) {
-						clearInterval(timer);
-						renderOver('Вы выиграли', 'victory', minutes, seconds);
-						seconds = 0;
-						minutes = 0;
+						
+						renderOver(('Вы выиграли'as string), ('victory' as string), (minutes as number), (seconds as number));
+						clearTime();
 					}
 
 					(temp as string) = '';
 				} else {
-					clearInterval(timer);
-					renderOver('Вы проиграли', 'over', minutes, seconds);
-					seconds = 0;
-					minutes = 0;
+					renderOver(('Вы проиграли' as string), ('over' as string), (minutes as number), (seconds as number));
+					clearTime();
 					return ((cards as HTMLElement).style.pointerEvents = 'none');
 					
 
@@ -74,19 +68,16 @@ export function renderGame() {
 		}, pause)
 	}
 
-	timer = setInterval(updateSeconds, 1000);
+	
 	const restart: HTMLElement | null = document.querySelector('.restart');
 	(restart as HTMLElement).addEventListener('click', (e) => {
-
-		clearInterval(timer);
-		seconds = 0;
-		minutes = 0;
+		// clearTime();
 		unitCheck('unit', 'Game');
 		renderGame();
 	})
 }
 
-const genCardDiv = (newArr) => {
+const genCardDiv = (newArr:Array<string>) => {
 	let fragment = new DocumentFragment();
 	newArr.sort(() => Math.random() - 0.5);
 	for (let i = 0; i < newArr.length; i++) {
@@ -103,7 +94,7 @@ const genCardDiv = (newArr) => {
 }
 
 const getListContent = () => {
-	let newArr = new Array();
+	let newArr:Array<string> = new Array();
 	let qual: string | null = localStorage.getItem('qual');
 	let result = 6 * Number(qual);
 	for (let i = 0; i < result / 2; i++) {
@@ -114,20 +105,4 @@ const getListContent = () => {
 	}
 	newArr.sort(() => Math.random() - 0.5);
 	return genCardDiv(newArr);
-}
-
-function updateSeconds() {
-	let spendTime: HTMLElement | null = document.querySelector('.time')
-	seconds += 1;
-	if (seconds > 59) {
-		seconds = 0;
-		minutes += 1;
-	}
-
-	if (minutes > 59) {
-		minutes = 0;
-		//hours += 1
-	}
-	;(spendTime as HTMLElement).textContent = `${minutes
-		.toString().padStart(2, '0')}.${seconds.toString().padStart(2, '0')}`;
 }

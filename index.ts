@@ -1,6 +1,6 @@
 
-import './css/style.css';
-export const app: Element | null = document.querySelector('.app');
+//import './css/style.css';
+export const app: HTMLElement | null = document.querySelector('.app');
 const PAGE:string[] = ['Start', 'Game', 'Over'];
 import { renderStart } from './js_component/renderScreenStart';
 import { renderGame } from './js_component/renderScreenGame';
@@ -17,9 +17,6 @@ export function start() {
 		if (unit === PAGE[1]) {
 			return renderGame()
 		}
-/* 		if (unit === PAGE[2]) {
-			return renderOver()
-		} */
 	} else {
 		return unitCheck('unit', 'Start')
 	}

@@ -1,9 +1,9 @@
 import { app } from '../index'
-import { unitCheck } from './functions'
-import { timer } from './renderScreenGame'
-clearTimeout(timer);
-function gameOver(text, imgs, minutes, seconds) {
-	clearTimeout(timer);
+import { unitCheck,clearTime } from './functions'
+//import { timer } from './renderScreenGame'
+
+function gameOver(text:string, imgs:string, minutes:number, seconds:number) {
+	clearTime();
 	let fragment = new DocumentFragment()
 	let screen = document.createElement('div')
 	screen.classList.add('screen')
@@ -35,8 +35,8 @@ function gameOver(text, imgs, minutes, seconds) {
 	return fragment
 }
 
-export function renderOver(text, imgs, minutes, seconds) {
-	clearTimeout(timer);
+export function renderOver(text:string, imgs:string, minutes:number, seconds:number) {
+	clearTime();
 	let div = document.createElement('div');
 	div.classList.add('layout');
 	app?.append(div);
