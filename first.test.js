@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 const { it, expect } = require("@jest/globals");
 //import { it, expect }  from ("@jest/globals");
 it("Проверяем получения значиний из локалсторедж", () => {
