@@ -1,5 +1,5 @@
 
-//import './css/style.css';
+import './css/style.css';
 export const app: HTMLElement | null = document.querySelector('.app');
 const PAGE:string[] = ['Start', 'Game', 'Over'];
 import { renderStart } from './js_component/renderScreenStart';
