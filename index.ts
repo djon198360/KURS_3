@@ -17,9 +17,6 @@ export function start() {
 		if (unit === PAGE[1]) {
 			return renderGame()
 		}
-/* 		if (unit === PAGE[2]) {
-			return renderOver()
-		} */
 	} else {
 		return unitCheck('unit', 'Start')
 	}
