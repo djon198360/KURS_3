@@ -22,8 +22,8 @@ export function renderGame() {
 	const cards: HTMLElement | null = document.querySelector(".card_table");
 	if (cards) {
 		const array = getListContent();
-cards.append(genCardDiv(array.sort(() => Math.random() - 0.5)))
-	//	cards.append(getListContent());
+		cards.append(genCardDiv(array.sort(() => Math.random() - 0.5)));
+		//	cards.append(getListContent());
 	}
 	if (cards) {
 		cards.style.pointerEvents = "none";
@@ -104,7 +104,7 @@ export const genCardDiv = (newArr: Array<string>) => {
 	return fragment;
 };
 
- export const getListContent = () => {
+export const getListContent = () => {
 	let newArr = new Array();
 	let qual: string | null = localStorage.getItem("qual");
 	let result = 6 * Number(qual);
@@ -117,4 +117,5 @@ export const genCardDiv = (newArr: Array<string>) => {
 	//return genCardDiv(newArr);
 	return newArr;
 };
+
 //module.exports = getListContent; //Так игра не запускается

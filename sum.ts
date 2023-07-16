@@ -3,9 +3,8 @@ export const sum = (a: number, b: number) => {
 };
 const result = sum(2 as number, 3 as number);
 
-
-export const minus  = (a:number , b:number) =>{
-	return a-b;
-}
+export const minus = (a: number, b: number) => {
+	return a - b;
+};
 
 module.exports = minus;
