@@ -1,0 +1,10 @@
+
+"type":"module",
+"jest": {
+		
+	"transform": {
+	  "^.+\\.js$": "babel-jest",
+	  "^.+\\.ts$": "ts-jest",
+	  ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
+	}
+  },

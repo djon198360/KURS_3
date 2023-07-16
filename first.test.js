@@ -1,14 +1,21 @@
+
 /**
  * @jest-environment jsdom
  */
-
-const { it, expect } = require("@jest/globals");
+const {PAGE} = require('./index');
+const { it, expect,describe } = require("@jest/globals");
 //import { it, expect }  from ("@jest/globals");
-it("Проверяем получения значиний из локалсторедж", () => {
-    let PAGE = ['Start', 'Game', 'Over'];
-  
-   let unit = require('./index');
-  console.log(unit);
-  
-    expect(unit.toContainEqual(PAGE));
-  });
+/*  it("Проверяем получения значиний из локалсторедж", () => {
+   const sum = require('./sum');
+    expect(sum(2,3)).toBe(10);
+  });  */
+    describe('test game' ,() =>{
+      describe('test index page',() =>{
+        it("бесполезная проверка", () => {
+
+          const unit = require('./index');
+          
+          expect(PAGE).toEqual(unit.PAGE);
+        }); 
+      });
+    });

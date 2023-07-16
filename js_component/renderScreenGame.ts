@@ -77,7 +77,7 @@ export function renderGame() {
 	})
 }
 
-const genCardDiv = (newArr:Array<string>) => {
+export const genCardDiv = (newArr:Array<string>) => {
 	let fragment = new DocumentFragment();
 	newArr.sort(() => Math.random() - 0.5);
 	for (let i = 0; i < newArr.length; i++) {

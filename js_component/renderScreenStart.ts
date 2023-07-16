@@ -2,7 +2,7 @@ import { app } from '../index';
 import { unitCheck } from './functions';
 
 export function renderStart() {
-	const textStart = 'Выбери сложность'
+	const textStart = 'Выбери сложность';
 	if(app){
 	app.innerHTML = `
                       <div class="screen">  
@@ -32,13 +32,13 @@ export const clickAp = () => {
 				buttons[i].classList.remove('active')
 			}
 			qual = (target as HTMLElement).textContent as string;
-			(target as HTMLElement).classList.add('active')
-			start?.removeAttribute('disabled')
+			(target as HTMLElement).classList.add('active');
+			start?.removeAttribute('disabled');
 		})
 	}
 	
 	start?.addEventListener('click', (e) => {
-		unitCheck('qual', qual)
-		unitCheck('unit', 'Game')
+		unitCheck('qual', qual);
+		unitCheck('unit', 'Game');
 	})
 }
