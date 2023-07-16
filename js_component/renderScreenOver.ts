@@ -15,9 +15,9 @@ function gameOver(
 	let p = document.createElement("p");
 	p.classList.add("title_" + imgs);
 	p.textContent = text;
-	let img = document.createElement("img");
+	let img = document.createElement("p");
 	img.classList.add(imgs);
-	img.setAttribute("src", imgs + ".svg");
+	//img.setAttribute("src", imgs + ".svg");
 	let titleTime = document.createElement("p");
 	titleTime.textContent = "Затраченное время:";
 	titleTime.classList.add("title_time");
