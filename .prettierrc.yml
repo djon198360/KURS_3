@@ -1,6 +1,9 @@
 tabWidth: 4
-semi: false
-singleQuote: true
+semi: true
+singleQuote: false
 useTabs: true
-htmlWhitespaceSensitivity: 'css'
-embeddedLanguageFormatting: 'auto'
+htmlWhitespaceSensitivity: "css"
+embeddedLanguageFormatting: "auto"
+quoteProps: "consistent"
+bracketSpacing: false
+arrowParens: "always"
