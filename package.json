@@ -54,7 +54,6 @@
 		"webpack-cli": "^5.1.4",
 		"webpack-dev-server": "^4.15.1"
 	},
-
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/djon198360/KURS_3.git"
@@ -62,6 +61,5 @@
 	"bugs": {
 		"url": "https://github.com/djon198360/KURS_3/issues"
 	},
-
 	"homepage": "https://github.com/djon198360/KURS_3#readme"
 }

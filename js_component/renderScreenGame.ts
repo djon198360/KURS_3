@@ -1,11 +1,11 @@
-import { app } from "../index";
-import { unitCheck, seconds, minutes, clearTime, startTime } from "./functions";
-import { renderOver } from "./renderScreenOver";
+import {app} from "../index";
+import {unitCheck, seconds, minutes, clearTime, startTime} from "./functions";
+import {renderOver} from "./renderScreenOver";
 
 const pause = 5 * 1000;
 
-const CARDDECK = [6, 7, 8, 9, 10, "j", "q", "k", "a"];
-const mast = ["pic", "kres", "bub", "her"];
+export const CARDDECK = [6, 7, 8, 9, 10, "j", "q", "k", "a"];
+export const mast = ["pic", "kres", "bub", "her"];
 
 export function renderGame() {
 	clearTime();
@@ -21,7 +21,9 @@ export function renderGame() {
 
 	const cards: HTMLElement | null = document.querySelector(".card_table");
 	if (cards) {
-		cards.append(getListContent());
+		const array = getListContent();
+cards.append(genCardDiv(array.sort(() => Math.random() - 0.5)))
+	//	cards.append(getListContent());
 	}
 	if (cards) {
 		cards.style.pointerEvents = "none";
@@ -102,16 +104,17 @@ export const genCardDiv = (newArr: Array<string>) => {
 	return fragment;
 };
 
-const getListContent = () => {
-	let newArr: Array<string> = new Array();
+ export const getListContent = () => {
+	let newArr = new Array();
 	let qual: string | null = localStorage.getItem("qual");
 	let result = 6 * Number(qual);
 	for (let i = 0; i < result / 2; i++) {
 		let y = Math.floor(Math.random() * CARDDECK.length);
 		let z = Math.floor(Math.random() * mast.length);
 		newArr.push(CARDDECK[y] + mast[z], CARDDECK[y] + mast[z]);
-		//	newArr.push(CARDDECK[y] + mast[z])
 	}
 	newArr.sort(() => Math.random() - 0.5);
-	return genCardDiv(newArr);
+	//return genCardDiv(newArr);
+	return newArr;
 };
+//module.exports = getListContent; //Так игра не запускается

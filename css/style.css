@@ -209,6 +209,26 @@ img.victory {
 	margin: 30px auto 9px;
 }
 
+.victory {
+    width: 96px;
+    height: 92px;
+    margin: 30px auto 9px;
+    background-image: url("../img/victory.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.over {
+	margin: 32px auto 8px;
+	width: 96px;
+    height: 92px;
+    background-image: url("../img/over.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .title_over,
 .title_victory {
 	padding-top: 28px;
