@@ -4,11 +4,11 @@
 /* stylelint-disable declaration-block-no-redundant-longhand-properties */
 @font-face {
 	font-family: StratosSkyeng;
-	src: url('../fonts/stratosskyengweb-regular.woff2');
+	src: url("../fonts/stratosskyengweb-regular.woff2");
 	src:
-		local('StratosSkyeng'),
-		url('../fonts/stratosskyengweb-regular.woff2') format('woff2'),
-		url('../fonts/stratosskyengweb-regular.woff') format('woff');
+		local("StratosSkyeng"),
+		url("../fonts/stratosskyengweb-regular.woff2") format("woff2"),
+		url("../fonts/stratosskyengweb-regular.woff") format("woff");
 }
 
 body {
@@ -52,7 +52,7 @@ body {
 }
 
 .qual {
-    padding-bottom: 67px;
+	padding-bottom: 67px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -187,11 +187,11 @@ button.restart {
 	visibility: hidden;
 }
 
-.qual input[type='radio'] {
+.qual input[type="radio"] {
 	display: none;
 }
 
-.qual input[type='radio']:checked {
+.qual input[type="radio"]:checked {
 	background-color: #7ac100;
 	color: #fff;
 }

@@ -1,13 +1,11 @@
-import { app } from '../index';
-import { unitCheck,seconds,minutes,clearTime,startTime} from './functions';
-import { renderOver } from './renderScreenOver';
-
+import { app } from "../index";
+import { unitCheck, seconds, minutes, clearTime, startTime } from "./functions";
+import { renderOver } from "./renderScreenOver";
 
 const pause = 5 * 1000;
 
-const CARDDECK = [6, 7, 8, 9, 10, 'j', 'q', 'k', 'a'];
-const mast = ['pic', 'kres', 'bub', 'her'];
-
+const CARDDECK = [6, 7, 8, 9, 10, "j", "q", "k", "a"];
+const mast = ["pic", "kres", "bub", "her"];
 
 export function renderGame() {
 	clearTime();
@@ -21,81 +19,92 @@ export function renderGame() {
             </div>
                 `;
 
-	const cards:HTMLElement|null = document.querySelector('.card_table');
-	if(cards){cards.append(getListContent());}
-	if(cards){cards.style.pointerEvents = 'none';}
-	const elements = Array.from(document.querySelectorAll('.card_card'));
+	const cards: HTMLElement | null = document.querySelector(".card_table");
+	if (cards) {
+		cards.append(getListContent());
+	}
+	if (cards) {
+		cards.style.pointerEvents = "none";
+	}
+	const elements = Array.from(document.querySelectorAll(".card_card"));
 
-	let cardInDom = Array.from(document.querySelectorAll('.card'));
+	let cardInDom = Array.from(document.querySelectorAll(".card"));
 	// вызываем функцию по клику на .card
 	let temp;
 	for (let card of cardInDom) {
-		;(card as HTMLElement).onclick = () => {
-			if (card.classList.contains('open')) return;
-			let cardValue: string | null = card.getAttribute('data-number');
-			card.children[0].classList.remove('close');
+		(card as HTMLElement).onclick = () => {
+			if (card.classList.contains("open")) return;
+			let cardValue: string | null = card.getAttribute("data-number");
+			card.children[0].classList.remove("close");
 			if (temp && temp != card) {
-				if (temp.getAttribute('data-number') === cardValue) {
-					temp.classList.remove('close');
-					card.classList.remove('close');
+				if (temp.getAttribute("data-number") === cardValue) {
+					temp.classList.remove("close");
+					card.classList.remove("close");
 					let mov = JSON.parse(
-						localStorage.getItem('moves') as string
+						localStorage.getItem("moves") as string,
 					);
 					mov++;
-					localStorage.setItem('moves', JSON.stringify(mov));
-					if (document.querySelectorAll('.close').length <= 0) {
-						
-						renderOver(('Вы выиграли'as string), ('victory' as string), (minutes as number), (seconds as number));
+					localStorage.setItem("moves", JSON.stringify(mov));
+					if (document.querySelectorAll(".close").length <= 0) {
+						renderOver(
+							"Вы выиграли" as string,
+							"victory" as string,
+							minutes as number,
+							seconds as number,
+						);
 						clearTime();
 					}
 
-					(temp as string) = '';
+					(temp as string) = "";
 				} else {
-					renderOver(('Вы проиграли' as string), ('over' as string), (minutes as number), (seconds as number));
+					renderOver(
+						"Вы проиграли" as string,
+						"over" as string,
+						minutes as number,
+						seconds as number,
+					);
 					clearTime();
-					return ((cards as HTMLElement).style.pointerEvents = 'none');
-					
-
+					return ((cards as HTMLElement).style.pointerEvents =
+						"none");
 				}
 			} else temp = card;
-		}
+		};
 	}
 
 	for (let elem of elements) {
 		setTimeout(function () {
-			(elem as Element).classList.add('close');
-			(cards as HTMLElement).style.pointerEvents = 'unset';
-		}, pause)
+			(elem as Element).classList.add("close");
+			(cards as HTMLElement).style.pointerEvents = "unset";
+		}, pause);
 	}
 
-	
-	const restart: HTMLElement | null = document.querySelector('.restart');
-	(restart as HTMLElement).addEventListener('click', (e) => {
+	const restart: HTMLElement | null = document.querySelector(".restart");
+	(restart as HTMLElement).addEventListener("click", (e) => {
 		// clearTime();
-		unitCheck('unit', 'Game');
+		unitCheck("unit", "Game");
 		renderGame();
-	})
+	});
 }
 
-export const genCardDiv = (newArr:Array<string>) => {
+export const genCardDiv = (newArr: Array<string>) => {
 	let fragment = new DocumentFragment();
 	newArr.sort(() => Math.random() - 0.5);
 	for (let i = 0; i < newArr.length; i++) {
-		let carda = document.createElement('div');
-		let fon = document.createElement('img');
-		carda.classList.add('card');
+		let carda = document.createElement("div");
+		let fon = document.createElement("img");
+		carda.classList.add("card");
 		carda.dataset.number = newArr[i];
-		fon.setAttribute('src',  newArr[i] + '.svg');
-		fon.classList.add('card_card');
+		fon.setAttribute("src", newArr[i] + ".svg");
+		fon.classList.add("card_card");
 		carda.appendChild(fon);
 		fragment.append(carda);
 	}
 	return fragment;
-}
+};
 
 const getListContent = () => {
-	let newArr:Array<string> = new Array();
-	let qual: string | null = localStorage.getItem('qual');
+	let newArr: Array<string> = new Array();
+	let qual: string | null = localStorage.getItem("qual");
 	let result = 6 * Number(qual);
 	for (let i = 0; i < result / 2; i++) {
 		let y = Math.floor(Math.random() * CARDDECK.length);
@@ -105,4 +114,4 @@ const getListContent = () => {
 	}
 	newArr.sort(() => Math.random() - 0.5);
 	return genCardDiv(newArr);
-}
+};
