@@ -21,21 +21,20 @@ describe("test game", () => {
 			expect(PAGE).toEqual(unit.PAGE);
 		});
 	}); */
-let mockFridge = {};
+	let mockFridge = {};
 
-    beforeEach(() => {
-        global.Storage.prototype.setItem = jest.fn((key, value) => {
-            mockFridge[key] = value;
-        });
-        global.Storage.prototype.getItem = jest.fn((key) => {
-            return mockFridge[key];
-        });
-    });
+	beforeEach(() => {
+		global.Storage.prototype.setItem = jest.fn((key, value) => {
+			mockFridge[key] = value;
+		});
+		global.Storage.prototype.getItem = jest.fn((key) => {
+			return mockFridge[key];
+		});
+	});
 
 	it("game test get", () => {
+		global.Storage.prototype.setItem("qual", 1);
 
-		 global.Storage.prototype.setItem("qual", 1);
-       
 		const {getListContent} = require("./js_component/renderScreenGame");
 
 		const cards1 = getListContent(); //Пробоал getListContent
