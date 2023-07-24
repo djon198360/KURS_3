@@ -21,13 +21,26 @@ describe("test game", () => {
 			expect(PAGE).toEqual(unit.PAGE);
 		});
 	}); */
+let mockFridge = {};
+
+    beforeEach(() => {
+        global.Storage.prototype.setItem = jest.fn((key, value) => {
+            mockFridge[key] = value;
+        });
+        global.Storage.prototype.getItem = jest.fn((key) => {
+            return mockFridge[key];
+        });
+    });
 
 	it("game test get", () => {
+
+		 global.Storage.prototype.setItem("qual", 1);
+       
 		const {getListContent} = require("./js_component/renderScreenGame");
 
 		const cards1 = getListContent(); //Пробоал getListContent
 		const cards2 = getListContent();
 
-		expect(cards1).toBe(cards2.array); //пробовал разные вариации cards1.Array cards1.newArr
+		expect(cards1).not.toEqual(cards2); //пробовал разные вариации cards1.Array cards1.newArr
 	});
 });
