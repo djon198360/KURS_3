@@ -1,5 +1,5 @@
 import {app} from "../index";
-import {unitCheck, clearTime} from "./functions";
+import {stateCheck, clearTime} from "./functions";
 //import { timer } from './renderScreenGame'
 
 function gameOver(
@@ -28,7 +28,7 @@ function gameOver(
 	time.classList.add("time_over");
 	let button = document.createElement("button");
 	button.textContent = "Играть снова";
-	button.classList.add("start");
+	button.classList.add("startButton");
 	screen.appendChild(img);
 	screen.appendChild(p);
 	screen.appendChild(titleTime);
@@ -50,9 +50,9 @@ export function renderOver(
 	div.classList.add("layout");
 	app?.append(div);
 	app?.append(gameOver(text, imgs, minutes, seconds));
-	const start: HTMLElement | null = document.querySelector(".start");
-	start?.addEventListener("click", (e) => {
+	const startButton: HTMLElement | null = document.querySelector(".startButton");
+	startButton?.addEventListener("click", (e) => {
 		localStorage.clear();
-		unitCheck("unit", "Start");
+		stateCheck("state", "Start");
 	});
 }

@@ -1,29 +1,29 @@
-import {start} from "../index";
+import {askStart} from "../index";
 export let seconds: number = 0;
 export let minutes: number = 0;
-let time = "";
-let timer;
+let time:boolean = false;
+let timer:NodeJS.Timer;
 
-export function unitCheck(unit: string, param: string) {
-	localStorage.setItem(unit, param);
-	return start();
+export function stateCheck(state: string, param: string) {
+	localStorage.setItem(state, param);
+	return askStart();
 }
 export const clearTime = () => {
-	clearInterval(timer);
+	clearInterval((timer));
 	seconds = 0;
 	minutes = 0;
-	time = "stop";
+	time = false;
 	return seconds || minutes;
 };
 export const startTime = () => {
 	timer = setInterval(updateSeconds, 1000);
 	seconds = 0;
 	minutes = 0;
-	time = "start";
+	time = true;
 };
 
 export function updateSeconds() {
-	if (time === "stop") {
+	if (time === false) {
 		seconds = 0;
 		minutes = 0;
 	}

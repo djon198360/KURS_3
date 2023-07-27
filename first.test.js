@@ -3,9 +3,8 @@
  */
 
 const {it, expect, describe} = require("@jest/globals");
-
-
-describe("test game", () => {
+const {getCardDeck,renderCard,renderGame} = require("./js_component/renderScreenGame");
+describe("test game ", () => {
 	let mockFridge = {};
 	beforeEach(() => {
 		global.Storage.prototype.setItem = jest.fn((key, value) => {
@@ -16,15 +15,21 @@ describe("test game", () => {
 		});
 	});
 
-	it("game test get", () => {
-		global.Storage.prototype.setItem("qual", 1);
-
-		const {getListContent} = require("./js_component/renderScreenGame");
-
-		const cards1 = getListContent();
-
-		const cards2 = getListContent();
+	it("get array card", () => {
+		global.Storage.prototype.setItem("gameComplexity", 1);
 		
-		expect(cards1).not.toEqual(cards2);
+		const arrayCards1 = getCardDeck();
+		const arrayCards2 = getCardDeck();
+		expect(arrayCards1).not.toEqual(arrayCards2);
 	});
+
+	it("get render card", () => {
+		const arrayCards1 = getCardDeck();
+		const arrayCards2 = getCardDeck();
+		expect(renderCard(arrayCards1)).not.toEqual(renderCard(arrayCards2));
+	});
+
+
+
+	
 });
