@@ -2,6 +2,34 @@
 /* stylelint-disable selector-class-pattern */
 /* stylelint-disable prettier/prettier */
 /* stylelint-disable declaration-block-no-redundant-longhand-properties */
+
+
+@keyframes flip-scale-up-hor {
+	0% {
+		transform: scale(1) rotateX(0);
+	}
+
+	50% {
+		transform: scale(1) rotateX(-90deg);
+	}
+
+	100% {
+		transform: scale(1) rotateX(0deg);
+	}
+}
+
+@keyframes flip-scale-up-hor2 {
+	0% {
+		transform: rotate(-540deg) scale(0);
+		opacity: 0;
+	}
+
+	100% {
+		transform: rotate(0) scale(1);
+		opacity: 1;
+	}
+}
+
 @font-face {
 	font-family: StratosSkyeng;
 	src: url("../fonts/stratosskyengweb-regular.woff2");
@@ -51,7 +79,7 @@ body {
 	margin: 0;
 }
 
-.qual {
+.gameComplexity {
 	padding-bottom: 67px;
 	display: flex;
 	flex-direction: row;
@@ -83,7 +111,7 @@ body {
 	color: #fff;
 }
 
-button.start {
+button.startButton {
 	display: flex;
 	margin: 0 auto;
 	width: 246px;
@@ -101,7 +129,7 @@ button.start {
 	border-radius: 12px;
 }
 
-button.start:disabled {
+button.startButton:disabled {
 	background-color: #757a6d;
 }
 
@@ -181,22 +209,28 @@ button.restart {
 	margin: 15px;
 	height: 133px;
 	width: 95px;
+	animation: flip-scale-up-hor2 0.5s linear both;
 }
 
-.close {
+.card.close {
+	animation: flip-scale-up-hor 0.5s linear both;
+}
+
+.close img {
 	visibility: hidden;
+
 }
 
-.qual input[type="radio"] {
+.gameComplexity input[type="radio"] {
 	display: none;
 }
 
-.qual input[type="radio"]:checked {
+.gameComplexity input[type="radio"]:checked {
 	background-color: #7ac100;
 	color: #fff;
 }
 
-.qual label:hover {
+.gameComplexity label:hover {
 	background-color: #d0ffb7;
 	transform: scale(1.1);
 }

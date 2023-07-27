@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
 	entry: "./index.ts", // Входной файл, в котором мы пишем свой код
@@ -35,5 +36,6 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({template: "index.html"}),
 		new MiniCssExtractPlugin(),
+		new CopyPlugin({patterns:[{from:'img',to:'../public/img'},{from:'img/ico',to:'../public'},],}),
 	],
 };

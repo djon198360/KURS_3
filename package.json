@@ -9,7 +9,7 @@
 		"dev": "webpack --mode development --watch",
 		"format": "prettier --write .",
 		"lint:js": "eslint ./js_component/*.js",
-		"lint:css": "stylelint ./css/*.css",
+		"lint:css": "stylelint ./css/*.css --fix",
 		"prepare": "husky install",
 		"lint": "npm run lint:js && npm run lint:css",
 		"start": "http-server -p 3001",

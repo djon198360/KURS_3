@@ -18,7 +18,7 @@
 		"camelcase": ["error"],
 		"declaration-block-no-redundant-longhand-properties": [
 			1,
-			{"ignoreShorthands": ["flex", "margin", "padding"]}
+			{"ignoreShorthands": ["flex", "margin", "padding","transform","-webkit"]}
 		],
 		"strict": "error",
 		"resolveNestedSelectors": 2,
