@@ -1,15 +1,15 @@
 import {askStart} from "../index";
 export let seconds: number = 0;
 export let minutes: number = 0;
-let time:boolean = false;
-let timer:NodeJS.Timer;
+let time: boolean = false;
+let timer: NodeJS.Timer;
 
 export function stateCheck(state: string, param: string) {
 	localStorage.setItem(state, param);
 	return askStart();
 }
 export const clearTime = () => {
-	clearInterval((timer));
+	clearInterval(timer);
 	seconds = 0;
 	minutes = 0;
 	time = false;

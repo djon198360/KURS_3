@@ -7,14 +7,18 @@
 	"extends": [
 		"airbnb",
 		//"eslint:recommended",
-		"prettier"
+		"prettier",
+		"plugin:@typescript-eslint/recommended"
 	],
-	"plugins": ["prettier"],
+	//"plugin":["@typescript-eslint"],
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["prettier","@typescript-eslint"],
 	"parserOptions": {
 		"ecmaVersion": 2020
 	},
 	"rules": {
-		"prettier/prettier": "error",
+		"@typescript-eslint/no-var-requires" : 0,
+//		"prettier/prettier": "error",
 		"camelcase": ["error"],
 		"declaration-block-no-redundant-longhand-properties": [
 			1,

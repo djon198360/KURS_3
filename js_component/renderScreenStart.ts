@@ -25,7 +25,8 @@ export function renderStart() {
 export const clickApp = () => {
 	let gameComplexity: string = "0";
 	const buttons = document.querySelectorAll(".but");
-	const startButton: HTMLElement | null = document.querySelector(".startButton");
+	const startButton: HTMLElement | null =
+		document.querySelector(".startButton");
 	for (let i = 0; i < buttons.length; i++) {
 		buttons[i].addEventListener("click", (e) => {
 			let target: EventTarget | null = e.target;

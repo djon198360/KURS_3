@@ -20,24 +20,25 @@ export function renderGame() {
                 `;
 	const cardTable: HTMLElement | null = document.querySelector(".card_table");
 	if (cardTable) {
-		const array = getCardDeck ();
+		const array = getCardDeck();
 		cardTable.append(renderCard(array.sort(() => Math.random() - 0.5)));
 		cardTable.style.pointerEvents = "none";
 	}
 
 	let cardAllTable = Array.from(document.querySelectorAll(".card"));
 	// вызываем функцию по клику на .card
-	let tempCardValue:String|null;
+	let tempCardValue: String | null;
 	for (let clickedCard of cardAllTable) {
 		(clickedCard as HTMLElement).onclick = () => {
 			if (clickedCard.classList.contains("open")) return;
-			let clickedCardValue: string | null = clickedCard.getAttribute("data-number");
+			let clickedCardValue: string | null =
+				clickedCard.getAttribute("data-number");
 			clickedCard.children[0].classList.remove("close");
 			clickedCard.classList.add("open");
 			clickedCard.classList.remove("close");
 			if (tempCardValue) {
 				clickedCard.classList.remove("close");
-				clickedCard.classList.add("open");;
+				clickedCard.classList.add("open");
 				if (tempCardValue === clickedCardValue) {
 					if (document.querySelectorAll(".close").length <= 0) {
 						renderOver(
@@ -88,7 +89,7 @@ export const renderCard = (cardArray: Array<string>) => {
 		let fon = document.createElement("img");
 		card.classList.add("card");
 		card.dataset.number = cardArray[i];
-		fon.setAttribute("src", "img/"+ cardArray[i] + ".svg");
+		fon.setAttribute("src", "img/" + cardArray[i] + ".svg");
 		fon.classList.add("card_img");
 		card.appendChild(fon);
 		fragment.append(card);
@@ -108,5 +109,3 @@ export const getCardDeck = () => {
 	cardArray.sort(() => Math.random() - 0.5);
 	return cardArray;
 };
-
-
