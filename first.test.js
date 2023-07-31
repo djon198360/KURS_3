@@ -3,7 +3,11 @@
  */
 
 const {it, expect, describe} = require("@jest/globals");
-const {getCardDeck,renderCard,renderGame} = require("./js_component/renderScreenGame");
+const {
+	getCardDeck,
+	renderCard,
+	renderGame,
+} = require("./js_component/renderScreenGame");
 describe("test game ", () => {
 	let mockFridge = {};
 	beforeEach(() => {
@@ -17,7 +21,7 @@ describe("test game ", () => {
 
 	it("get array card", () => {
 		global.Storage.prototype.setItem("gameComplexity", 1);
-		
+
 		const arrayCards1 = getCardDeck();
 		const arrayCards2 = getCardDeck();
 		expect(arrayCards1).not.toEqual(arrayCards2);
@@ -28,8 +32,4 @@ describe("test game ", () => {
 		const arrayCards2 = getCardDeck();
 		expect(renderCard(arrayCards1)).not.toEqual(renderCard(arrayCards2));
 	});
-
-
-
-	
 });

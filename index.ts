@@ -4,7 +4,6 @@ export const PAGE: string[] = ["Start", "Game", "Over"];
 import {renderStart} from "./js_component/renderScreenStart";
 import {renderGame} from "./js_component/renderScreenGame";
 import {stateCheck} from "./js_component/functions";
-//let unit:string|null = localStorage.getItem('unit');
 
 export function askStart() {
 	if (localStorage.getItem("state")) {

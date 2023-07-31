@@ -50,7 +50,8 @@ export function renderOver(
 	div.classList.add("layout");
 	app?.append(div);
 	app?.append(gameOver(text, imgs, minutes, seconds));
-	const startButton: HTMLElement | null = document.querySelector(".startButton");
+	const startButton: HTMLElement | null =
+		document.querySelector(".startButton");
 	startButton?.addEventListener("click", (e) => {
 		localStorage.clear();
 		stateCheck("state", "Start");
