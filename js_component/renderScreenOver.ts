@@ -13,7 +13,7 @@ function gameOver(
 	const screen = document.createElement("div");
 	screen.classList.add("screen");
 	const p = document.createElement("p");
-	p.classList.add(`title_${  imgs}`);
+	p.classList.add(`title_${imgs}`);
 	p.textContent = text;
 	const img = document.createElement("p");
 	img.classList.add(imgs);
@@ -52,7 +52,7 @@ export function renderOver(
 	app?.append(gameOver(text, imgs, minutes, seconds));
 	const startButton: HTMLElement | null =
 		document.querySelector(".startButton");
-	startButton?.addEventListener("click", (e) => {
+	startButton?.addEventListener("click", () => {
 		localStorage.clear();
 		stateCheck("state", "Start");
 	});

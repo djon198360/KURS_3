@@ -39,7 +39,7 @@ export const clickApp = () => {
 		});
 	}
 
-	startButton?.addEventListener("click", (e) => {
+	startButton?.addEventListener("click", () => {
 		stateCheck("gameComplexity", gameComplexity);
 		stateCheck("state", "Game");
 	});

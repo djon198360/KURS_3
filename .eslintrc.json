@@ -6,13 +6,9 @@
 	},
 	"extends": [
 	//	"airbnb",
-		//"eslint:recommended",
+		"eslint:recommended",
 		"prettier",
-		"plugin:@typescript-eslint/recommended",
-		"plugin:@typescript-eslint/eslint-recommended",
-		"plugin:import/errors",
-		"plugin:import/warnings",
-		"plugin:import/typescript"
+		"plugin:@typescript-eslint/recommended"
 	],
 	//"plugin":["@typescript-eslint"],
 	"parser": "@typescript-eslint/parser",
@@ -22,25 +18,32 @@
 	},
 	"rules": {
 		"@typescript-eslint/no-var-requires" : 0,
-		"no-unused-vars": "off",
-		"@typescript-eslint/no-unused-vars": ["error"],
-//"prettier/prettier": "error",
+// 		"prettier/prettier": "error",
 		"camelcase": ["error"],
 		"declaration-block-no-redundant-longhand-properties": [
-			2,
+			0,
 			{"ignoreShorthands": ["flex", "margin", "padding","transform","-webkit"]}
 		],
 		"strict": "error",
-		"resolveNestedSelectors": 2,
-		"eqeqeq": ["error", "always"]
+		"resolveNestedSelectors": 0,
+		"@typescript-eslint/no-unused-vars": "off",
+	//	"no-unused-vars": "off",
+		//"@typescript-eslint/no-unused-vars": ["error"]
+		"no-unused-vars": "off"
+	//	"eqeqeq": ["error", "always",{"null": "ignore"}]
 	},
-	"settings": {
-		"import/resolver": {
-			"node": {
-			"extensions": [".js", ".jsx", ".ts", ".tsx"],
-			"paths": ["node_modules/", "node_modules/@types","js_component/"]
+	
+	
+	
+		"overrides": [
+		  {
+			"files": [
+			  "**/*.test.js"
+			],
+			"env": {
+			  "jest": true
+			}
 		  }
-		}
-	  }
-
+		]
+	  
 }

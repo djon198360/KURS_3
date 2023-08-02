@@ -15,7 +15,7 @@
 		"start": "http-server -p 3001",
 		"build": "webpack --mode production",
 		"lint:ts": "tsc --noEmit",
-		"serve": "webpack serve",
+		"server": "webpack serve",
 		"ts-test": "ts-jest",
 		"test": "jest"
 	},

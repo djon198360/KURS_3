@@ -6,7 +6,6 @@ const {it, expect, describe} = require("@jest/globals");
 const {
 	getCardDeck,
 	renderCard,
-	renderGame,
 } = require("./js_component/renderScreenGame");
 
 describe("test game ", () => {
