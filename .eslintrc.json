@@ -5,10 +5,14 @@
 		"node": true
 	},
 	"extends": [
-		"airbnb",
+	//	"airbnb",
 		//"eslint:recommended",
 		"prettier",
-		"plugin:@typescript-eslint/recommended"
+		"plugin:@typescript-eslint/recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:import/errors",
+		"plugin:import/warnings",
+		"plugin:import/typescript"
 	],
 	//"plugin":["@typescript-eslint"],
 	"parser": "@typescript-eslint/parser",
@@ -18,14 +22,25 @@
 	},
 	"rules": {
 		"@typescript-eslint/no-var-requires" : 0,
-// 		"prettier/prettier": "error",
+		"no-unused-vars": "off",
+		"@typescript-eslint/no-unused-vars": ["error"],
+//"prettier/prettier": "error",
 		"camelcase": ["error"],
 		"declaration-block-no-redundant-longhand-properties": [
-			1,
+			2,
 			{"ignoreShorthands": ["flex", "margin", "padding","transform","-webkit"]}
 		],
 		"strict": "error",
 		"resolveNestedSelectors": 2,
 		"eqeqeq": ["error", "always"]
-	}
+	},
+	"settings": {
+		"import/resolver": {
+			"node": {
+			"extensions": [".js", ".jsx", ".ts", ".tsx"],
+			"paths": ["node_modules/", "node_modules/@types","js_component/"]
+		  }
+		}
+	  }
+
 }

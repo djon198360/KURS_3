@@ -1,4 +1,5 @@
 import {askStart} from "../index";
+
 export let seconds: number = 0;
 export let minutes: number = 0;
 let time: boolean = false;
@@ -28,7 +29,7 @@ export function updateSeconds() {
 		minutes = 0;
 	}
 	if (document.querySelector(".time")) {
-		let spendTime: HTMLElement | null = document.querySelector(".time");
+		const spendTime: HTMLElement | null = document.querySelector(".time");
 		seconds += 1;
 		if (seconds > 59) {
 			seconds = 0;
@@ -37,7 +38,7 @@ export function updateSeconds() {
 
 		if (minutes > 59) {
 			minutes = 0;
-			//hours += 1
+			// hours += 1
 		}
 
 		if ((spendTime as HTMLElement).textContent) {

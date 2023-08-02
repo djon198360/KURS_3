@@ -29,7 +29,7 @@ export const clickApp = () => {
 		document.querySelector(".startButton");
 	for (let i = 0; i < buttons.length; i++) {
 		buttons[i].addEventListener("click", (e) => {
-			let target: EventTarget | null = e.target;
+			const {target} = e;
 			for (let i = 0; i < buttons.length; i++) {
 				buttons[i].classList.remove("active");
 			}
