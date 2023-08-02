@@ -4,7 +4,7 @@ import {renderOver} from "./renderScreenOver";
 
 const pause = Number(5 * 1000);
 
-export const CARDRANK = [6, 7, 8, 9, 10, "j", "q", "k", "a"];
+export const CARDRANK = ["6", "7", "8", "9", "10", "j", "q", "k", "a"];
 export const CARDSUIT = ["peaks", "baptize", "bubi", "worms"];
 
 export function renderGame() {
@@ -75,7 +75,7 @@ export function renderGame() {
 	}
 
 	const restart: HTMLElement | null = document.querySelector(".restart");
-	(restart as HTMLElement).addEventListener("click", (e) => {
+	(restart as HTMLElement).addEventListener("click", () => {
 		stateCheck("state", "Game");
 		renderGame();
 	});
@@ -89,7 +89,7 @@ export const renderCard = (cardArray: Array<string>) => {
 		const fon = document.createElement("img");
 		card.classList.add("card");
 		card.dataset.number = cardArray[i];
-		fon.setAttribute("src", `img/${  cardArray[i]  }.svg`);
+		fon.setAttribute("src", `img/${cardArray[i]}.svg`);
 		fon.classList.add("card_img");
 		card.appendChild(fon);
 		fragment.append(card);
@@ -98,12 +98,12 @@ export const renderCard = (cardArray: Array<string>) => {
 };
 
 export const getCardDeck = () => {
-	const cardArray = [];
+	const cardArray: string[] = [];
 	const gameComplexity = localStorage.getItem("gameComplexity");
 	const result = 6 * Number(gameComplexity);
 	for (let i = 0; i < result / 2; i++) {
-		const y = Math.floor(Math.random() * CARDRANK.length);
-		const z = Math.floor(Math.random() * CARDSUIT.length);
+		const y = Math.floor(Math.random() * CARDRANK.length) as number;
+		const z = Math.floor(Math.random() * CARDSUIT.length) as number;
 		cardArray.push(CARDRANK[y] + CARDSUIT[z], CARDRANK[y] + CARDSUIT[z]);
 	}
 	cardArray.sort(() => Math.random() - 0.5);
