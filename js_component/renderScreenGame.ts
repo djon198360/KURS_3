@@ -25,13 +25,13 @@ export function renderGame() {
 		cardTable.style.pointerEvents = "none";
 	}
 
-	let cardAllTable = Array.from(document.querySelectorAll(".card"));
+	const cardAllTable = Array.from(document.querySelectorAll(".card"));
 	// вызываем функцию по клику на .card
-	let tempCardValue: String | null;
-	for (let clickedCard of cardAllTable) {
+	let tempCardValue: string | null;
+	for (const clickedCard of cardAllTable) {
 		(clickedCard as HTMLElement).onclick = () => {
 			if (clickedCard.classList.contains("open")) return;
-			let clickedCardValue: string | null =
+			const clickedCardValue: string | null =
 				clickedCard.getAttribute("data-number");
 			clickedCard.children[0].classList.remove("close");
 			clickedCard.classList.add("open");
@@ -66,8 +66,8 @@ export function renderGame() {
 		};
 	}
 	const cardImgAll = Array.from(document.querySelectorAll(".card"));
-	for (let elem of cardImgAll) {
-		setTimeout(function () {
+	for (const elem of cardImgAll) {
+		setTimeout(() => {
 			(elem as Element).children[0].classList.add("close");
 			(elem as Element).classList.add("close");
 			(cardTable as HTMLElement).style.pointerEvents = "unset";
@@ -82,14 +82,14 @@ export function renderGame() {
 }
 
 export const renderCard = (cardArray: Array<string>) => {
-	let fragment = new DocumentFragment();
+	const fragment = new DocumentFragment();
 	cardArray.sort(() => Math.random() - 0.5);
 	for (let i = 0; i < cardArray.length; i++) {
-		let card = document.createElement("div");
-		let fon = document.createElement("img");
+		const card = document.createElement("div");
+		const fon = document.createElement("img");
 		card.classList.add("card");
 		card.dataset.number = cardArray[i];
-		fon.setAttribute("src", "img/" + cardArray[i] + ".svg");
+		fon.setAttribute("src", `img/${  cardArray[i]  }.svg`);
 		fon.classList.add("card_img");
 		card.appendChild(fon);
 		fragment.append(card);
@@ -98,12 +98,12 @@ export const renderCard = (cardArray: Array<string>) => {
 };
 
 export const getCardDeck = () => {
-	let cardArray = new Array();
-	let gameComplexity = localStorage.getItem("gameComplexity");
-	let result = 6 * Number(gameComplexity);
+	const cardArray = [];
+	const gameComplexity = localStorage.getItem("gameComplexity");
+	const result = 6 * Number(gameComplexity);
 	for (let i = 0; i < result / 2; i++) {
-		let y = Math.floor(Math.random() * CARDRANK.length);
-		let z = Math.floor(Math.random() * CARDSUIT.length);
+		const y = Math.floor(Math.random() * CARDRANK.length);
+		const z = Math.floor(Math.random() * CARDSUIT.length);
 		cardArray.push(CARDRANK[y] + CARDSUIT[z], CARDRANK[y] + CARDSUIT[z]);
 	}
 	cardArray.sort(() => Math.random() - 0.5);

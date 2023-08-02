@@ -8,15 +8,14 @@ const {
 	renderCard,
 	renderGame,
 } = require("./js_component/renderScreenGame");
+
 describe("test game ", () => {
-	let mockFridge = {};
+	const mockFridge = {};
 	beforeEach(() => {
 		global.Storage.prototype.setItem = jest.fn((key, value) => {
 			mockFridge[key] = value;
 		});
-		global.Storage.prototype.getItem = jest.fn((key) => {
-			return mockFridge[key];
-		});
+		global.Storage.prototype.getItem = jest.fn((key) => mockFridge[key]);
 	});
 
 	it("get array card", () => {
