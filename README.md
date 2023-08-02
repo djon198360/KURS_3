@@ -1,4 +1,8 @@
 # kurs_3
+
+npm i webpack-dev-server
+
+
 https://djon198360.github.io/KURS_3/
 
 Игра угадай пару
